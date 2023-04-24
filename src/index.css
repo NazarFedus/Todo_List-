@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+     .container {
+          @apply w-full flex flex-col justify-center items-center
+     }
+     .title-1{
+          @apply font-sans text-3xl
+     }
+     .title-2{
+
+     }
+     .customButton{
+          @apply p-3
+     }
+     .btn{
+          @apply bg-cyan-500 p-2.5 border border-solid rounded-lg
+     }
+}
+
+:root{
+     --bg-color: bg-cyan-500;
+}
