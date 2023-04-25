@@ -28,13 +28,13 @@ export const TodoInput: FC = () => {
       <h3 className="title-1">TodoList</h3>
       <div className="container-col my-[7px]">
         <div className="container-row justify-between gap-[10px]">
-          <button onClick={() => setActive({all: true, done: false, todo: false})} className="p-[7px] px-[95px] bg-color_blue rounded text-white">
+          <button onClick={() => setActive({all: true, done: false, todo: false})} className={`p-[7px] px-[95px] bg-color_blue ${active.all && "bg-teal-700"} rounded text-white`}>
             All
           </button>
-          <button onClick={() => setActive({all: false, done: true, todo: false})} className="p-[7px] px-[95px] bg-color_blue rounded text-white">
+          <button onClick={() => setActive({all: false, done: true, todo: false})} className={`p-[7px] px-[95px] bg-color_blue ${active.done && "bg-teal-700"} rounded text-white`}>
             Done
           </button>
-          <button onClick={() => setActive({all: false, done: false, todo: true})} className="p-[7px] px-[95px] bg-color_blue rounded text-white">
+          <button onClick={() => setActive({all: false, done: false, todo: true})} className={`p-[7px] px-[95px] bg-color_blue ${active.todo && "bg-teal-700"} rounded text-white`}>
             Todo
           </button>
         </div>
