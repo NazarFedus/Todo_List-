@@ -7,19 +7,27 @@
      /* Containers */
 
      .wrapper{
-          @apply max-w-full h-[100vh] flex flex-col items-center mx-[50px]
+          @apply max-w-full h-[100vh] flex flex-col items-center mx-[275px] mt-[18px]
      }
      .container-col {
           @apply w-full flex flex-col items-center
      }
      .container-row {
-          @apply w-full flex flex-row justify-center items-center
+          @apply w-full h-fit flex flex-row justify-center items-center
+     }
+
+     .inputContainer {
+          @apply w-full flex flex-col items-center
+     }
+
+     .task{
+          @apply w-full flex flex-row justify-between
      }
 
      /* Titles */
 
      .title-1{
-          @apply font-sans text-3xl
+          @apply font-sans text-[29px]
      }
      .title-2{
 
@@ -39,6 +47,11 @@
      .input-default{
           @apply w-full
      }
+
+     /* Border */
+     /* .custom-border{
+          @apply border border-solid border-grey-400 rounded-lg mt-3 p-5
+     } */
 }
 
 :root{
