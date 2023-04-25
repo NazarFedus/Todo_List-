@@ -3,24 +3,39 @@
 @tailwind utilities;
 
 @layer components{
+
+     /* Containers */
+
+     .wrapper{
+          @apply max-w-full h-[100vh] flex flex-col items-center mx-[50px]
+     }
      .container-col {
           @apply w-full flex flex-col items-center
      }
      .container-row {
           @apply w-full flex flex-row justify-center items-center
      }
+
+     /* Titles */
+
      .title-1{
           @apply font-sans text-3xl
      }
      .title-2{
 
      }
+
+     /* Buttons */
+
      .customButton{
           @apply p-3
      }
      .btn{
           @apply bg-cyan-500 p-2.5 border border-solid rounded-lg
      }
+
+     /* Inputs */
+
      .input-default{
           @apply w-full
      }
