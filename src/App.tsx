@@ -20,13 +20,18 @@ const App: FC = () => {
     console.log(todoList);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addTask()
+  }
+
   return (
     <div className="wrapper">
       {/* InputList */}
       <div className="container-col flex-[30%]">
         <h3 className="title-1">TodoInput</h3>
         <div className="container-col border border-solid border-grey-400 rounded-lg mt-3 p-[12px] pl-[12px]">
-          <form className="container-row justify-start border border-solid border-grey-400 rounded-lg">
+          <form onSubmit={handleSubmit} className="container-row justify-start border border-solid border-grey-400 rounded-lg">
               <div className="bg-color_blue p-1 scale-[0.7]">
                 <img src={book} alt="book" />
               </div>
