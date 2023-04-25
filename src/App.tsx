@@ -1,14 +1,16 @@
 import React, { FC, ChangeEvent, useState } from "react";
 import TodoInput from "./components/TodoInput/TodoInput";
-import TodoList from './components/TodoList/TodoList'
+import TodoList from "./components/TodoList/TodoList";
+import TodoProvider from "./components/TodoProvider";
 
 const App: FC = () => {
-
   return (
-    <div className="wrapper">
-      <TodoInput></TodoInput>
-      <TodoList></TodoList>
-    </div>
+    <TodoProvider>
+      <div className="wrapper">
+        <TodoInput></TodoInput>
+        <TodoList></TodoList>
+      </div>
+    </TodoProvider>
   );
 };
 

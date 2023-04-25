@@ -1,13 +1,22 @@
-import React, { FC, useState } from "react";
+import React, { FC, useContext } from "react";
 
-
-import { ITask } from "../../types";
+import { TodoContext } from "../../context/context";
 import TodoTask from "./Todo/TodoTask";
+import { ITask } from "../../types";
 
 
 export const TodoInput: FC = () => {
+     const {state, dispatch} = useContext(TodoContext);
+     const {todoList} = state;
+     console.log(todoList)
 
-     const todoList = [{id: 1, title: 'dkmskf', completed: false}]
+     const deleteAllTasks = () => {
+          dispatch({type: "DELETE_ALL_TASKS"})
+     }
+     const deleteDoneTasks = () => {
+          dispatch({type: "DELETE_DONE_TASKS"})
+     }
+
   return (
     <div className="container-col flex-[70%]">
       <h3 className="title-1">TodoList</h3>
@@ -29,10 +38,14 @@ export const TodoInput: FC = () => {
           ))}
         </div>
         <div className="container-row justify-between">
-          <button className="p-[7px] px-[115px] bg-color_red rounded text-white">
+          <button
+          onClick={deleteDoneTasks}
+          className="p-[7px] px-[115px] bg-color_red rounded text-white">
             Delete done tasks
           </button>
-          <button className="p-[7px] px-[115px] bg-color_red rounded text-white">
+          <button
+               onClick={deleteAllTasks}
+               className="p-[7px] px-[115px] bg-color_red rounded text-white">
             Delete all tasks
           </button>
         </div>

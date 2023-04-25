@@ -1,11 +1,13 @@
-import React, { FC, useState } from "react";
+import React, { FC, useContext, useState } from "react";
 import book from "../../icons/book.png";
 
+import { TodoContext } from "../../context/context";
 import { ITask } from "../../types";
 
 
 export const TodoInput: FC = () => {
   const [task, setTask] = useState<string>("");
+  const {dispatch} = useContext(TodoContext);
   const [todoList, setTodoList] = useState<ITask[]>([]);
 
   const addTask = (): void => {
@@ -15,7 +17,7 @@ export const TodoInput: FC = () => {
       title: task,
       completed: false,
     };
-    setTodoList([...todoList, newTask]);
+    dispatch({type: 'ADD_TASK', payload: newTask});
     setTask("");
     console.log(todoList);
   };
@@ -24,6 +26,7 @@ export const TodoInput: FC = () => {
     e.preventDefault();
     addTask()
   };
+  
   return (
     <div className="container-col flex-[30%]">
       <h3 className="title-1">TodoInput</h3>
