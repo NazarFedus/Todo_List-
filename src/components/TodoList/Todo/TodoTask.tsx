@@ -15,7 +15,7 @@ const TodoTask = ({task}: ITodoTaskProps) => {
   }
   return (
     <div className="task mb-3 border border-solid border-grey-400 rounded-md p-[12px] transition-all hover:bg-slate-400">
-      <span className={`flex-[70%] ${task.completed && "line-through"}`}>{task.title}</span>
+      <span className={`flex-[70%] ${task.completed && "line-through text-red-600"}`}>{task.title}</span>
       <div className="flex-[30%] flex justify-end gap-[10px]">
         <input type="checkbox" className="form-checkbox-custom" onChange={toggleTask}/>
         <button><img src={pen} alt="pen" className="scale-[1.10]" /></button>
