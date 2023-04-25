@@ -1,7 +1,7 @@
 import React from "react";
-import trash from '../icons/trash.png'
-import pen from '../icons/pen.png'
-import { ITodoTaskProps} from "../types";
+import trash from '../../../icons/trash.png'
+import pen from '../../../icons/pen.png'
+import { ITodoTaskProps} from "../../../types";
 
 const TodoTask = ({task}: ITodoTaskProps) => {
 
