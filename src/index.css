@@ -3,8 +3,11 @@
 @tailwind utilities;
 
 @layer components{
-     .container {
-          @apply w-full flex flex-col justify-center items-center
+     .container-col {
+          @apply w-full flex flex-col items-center
+     }
+     .container-row {
+          @apply w-full flex flex-row justify-center items-center
      }
      .title-1{
           @apply font-sans text-3xl
@@ -17,6 +20,9 @@
      }
      .btn{
           @apply bg-cyan-500 p-2.5 border border-solid rounded-lg
+     }
+     .input-default{
+          @apply w-full
      }
 }
 
