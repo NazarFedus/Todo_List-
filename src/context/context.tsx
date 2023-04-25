@@ -37,6 +37,16 @@ const todoReducer = (state: IState, action: any) => {
             : task
         ),
       };
+      case "DELETE_DONE_TASKS":
+        return {
+          ...state,
+          todoList: state.todoList.filter((task) => !task.completed)
+        };
+      case "DELETE_ALL_TASKS":
+        return {
+          ...state,
+          todoList: state.todoList = []
+        };
     default:
       return state;
   }
