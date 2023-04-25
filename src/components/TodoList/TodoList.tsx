@@ -1,4 +1,4 @@
-import React, { FC, useContext } from "react";
+import React, { FC, useContext, useState } from "react";
 
 import { TodoContext } from "../../context/context";
 import TodoTask from "./Todo/TodoTask";
@@ -6,9 +6,15 @@ import { ITask } from "../../types";
 
 
 export const TodoInput: FC = () => {
+    const [active, setActive] = useState({
+      all: true,
+      done: false,
+      todo: false
+    })
      const {state, dispatch} = useContext(TodoContext);
      const {todoList} = state;
-     console.log(todoList)
+
+
 
      const deleteAllTasks = () => {
           dispatch({type: "DELETE_ALL_TASKS"})
@@ -22,20 +28,26 @@ export const TodoInput: FC = () => {
       <h3 className="title-1">TodoList</h3>
       <div className="container-col my-[7px]">
         <div className="container-row justify-between gap-[10px]">
-          <button className="p-[7px] px-[95px] bg-color_blue rounded text-white">
+          <button onClick={() => setActive({all: true, done: false, todo: false})} className="p-[7px] px-[95px] bg-color_blue rounded text-white">
             All
           </button>
-          <button className="p-[7px] px-[95px] bg-color_blue rounded text-white">
+          <button onClick={() => setActive({all: false, done: true, todo: false})} className="p-[7px] px-[95px] bg-color_blue rounded text-white">
             Done
           </button>
-          <button className="p-[7px] px-[95px] bg-color_blue rounded text-white">
+          <button onClick={() => setActive({all: false, done: false, todo: true})} className="p-[7px] px-[95px] bg-color_blue rounded text-white">
             Todo
           </button>
         </div>
         <div className="w-full my-[40px] h-[240px] max-h-[240px] overflow-y-scroll">
-          {todoList.map((task: ITask) => (
-            <TodoTask key={task.id} task={task} />
-          ))}
+          {todoList.map((task: ITask) =>{
+            if(active.all) return <TodoTask key={task.id} task={task} />
+            if(active.done){
+              if(task.completed) return <TodoTask key={task.id} task={task} />
+            }
+            if(active.todo){
+              if(!task.completed) return <TodoTask key={task.id} task={task} />
+            }
+          })}
         </div>
         <div className="container-row justify-between">
           <button
