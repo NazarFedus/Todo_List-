@@ -10,7 +10,7 @@ const TodoTask = ({task}: ITodoTaskProps) => {
     <div className="task mb-3 border border-solid border-grey-400 rounded-md p-[12px]">
       <span className="flex-[70%]">{task.title}</span>
       <div className="flex-[30%] flex justify-end gap-[10px]">
-        <input type="checkbox" />
+        <input type="checkbox" className="form-checkbox-custom"/>
         <button><img src={pen} alt="pen" className="scale-[1.10]" /></button>
         <button><img src={trash} alt="trash" className="scale-[1.10]" /></button>
       </div>

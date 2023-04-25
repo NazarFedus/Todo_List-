@@ -2,58 +2,100 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components{
+@layer components {
+  /* Containers */
 
-     /* Containers */
+  .wrapper {
+    @apply max-w-full h-[100vh] flex flex-col items-center mx-[275px] mt-[18px];
+  }
+  .container-col {
+    @apply w-full flex flex-col items-center;
+  }
+  .container-row {
+    @apply w-full h-fit flex flex-row justify-center items-center;
+  }
 
-     .wrapper{
-          @apply max-w-full h-[100vh] flex flex-col items-center mx-[275px] mt-[18px]
-     }
-     .container-col {
-          @apply w-full flex flex-col items-center
-     }
-     .container-row {
-          @apply w-full h-fit flex flex-row justify-center items-center
-     }
+  .inputContainer {
+    @apply w-full flex flex-col items-center;
+  }
 
-     .inputContainer {
-          @apply w-full flex flex-col items-center
-     }
+  .task {
+    @apply w-full flex flex-row justify-between;
+  }
 
-     .task{
-          @apply w-full flex flex-row justify-between
-     }
+  /* Titles */
 
-     /* Titles */
+  .title-1 {
+    @apply font-sans text-[29px];
+  }
+  .title-2 {
+  }
 
-     .title-1{
-          @apply font-sans text-[29px]
-     }
-     .title-2{
+  /* Buttons */
 
-     }
+  .customButton {
+    @apply p-3;
+  }
+  .btn {
+    @apply bg-cyan-500 p-2.5 border border-solid rounded-lg;
+  }
 
-     /* Buttons */
+  /* Inputs */
 
-     .customButton{
-          @apply p-3
-     }
-     .btn{
-          @apply bg-cyan-500 p-2.5 border border-solid rounded-lg
-     }
+  .input-default {
+    @apply w-full;
+  }
 
-     /* Inputs */
-
-     .input-default{
-          @apply w-full
-     }
-
-     /* Border */
-     /* .custom-border{
+  /* Border */
+  /* .custom-border{
           @apply border border-solid border-grey-400 rounded-lg mt-3 p-5
      } */
 }
 
-:root{
-     --bg-color: bg-cyan-500;
+:root {
+  --bg-color: bg-cyan-500;
+}
+
+/* Стилі для чекбокса */
+.form-checkbox-custom {
+  /* Ховаємо оригінальний чекбокс */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Встановлюємо розміри чекбокса */
+  width: 1.5rem;
+  height: 1.5rem;
+  /* Встановлюємо рамку та колір фону */
+  border: 2px solid #cbd5e0;
+  background-color: #fff;
+  /* Визначаємо круглий кут */
+  border-radius: 0.25rem;
+  /* Центруємо чекбокс відносно тексту */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* Визначаємо позицію для псевдоелемента */
+  position: relative;
+}
+/* Стилі для галочки */
+.form-checkbox-custom::after {
+  content: "\2713";
+  color: #35A156;
+  /* Ховаємо галочку за замовчуванням */
+  opacity: 0;
+  /* Визначаємо позицію відносно батьківського елемента */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Визначаємо перехідні ефекти для галочки */
+  transition: all 0.2s ease;
+}
+/* Стилі для чекбокса при виборі */
+.form-checkbox-custom:checked {
+  border-color: #35A156;
+}
+/* Стилі для галочки при виборі */
+.form-checkbox-custom:checked::after {
+  opacity: 1;
 }
