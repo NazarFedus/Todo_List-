@@ -1,7 +1,17 @@
-import TodoWrapper from "./components/TodoWrapper/TodoWrapper";
+import React, { FC, ChangeEvent, useState } from "react";
+import TodoInput from "./components/TodoInput/TodoInput";
+import TodoList from "./components/TodoList/TodoList";
+import TodoProvider from "./components/TodoProvider";
 
-export default function App() {
+const App: FC = () => {
   return (
-    <TodoWrapper />
+    <TodoProvider>
+      <div className="wrapper">
+        <TodoInput></TodoInput>
+        <TodoList></TodoList>
+      </div>
+    </TodoProvider>
   );
-}
+};
+
+export default App;
