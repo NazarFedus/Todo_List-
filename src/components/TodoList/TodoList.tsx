@@ -1,4 +1,4 @@
-import React, { FC, useContext, useState } from "react";
+import { FC, useContext, useState } from "react";
 
 import { TodoContext } from "../../context/context";
 import TodoTask from "./Todo/TodoTask";

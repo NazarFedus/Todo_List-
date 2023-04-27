@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import trash from '../../../icons/trash.png'
 import pen from '../../../icons/pen.png'
 import { ITodoTaskProps} from "../../../types";

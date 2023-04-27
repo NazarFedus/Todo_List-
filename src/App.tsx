@@ -1,4 +1,4 @@
-import React, { FC, ChangeEvent, useState } from "react";
+import {FC} from "react";
 import TodoInput from "./components/TodoInput/TodoInput";
 import TodoList from "./components/TodoList/TodoList";
 import TodoProvider from "./components/TodoProvider";
