@@ -1,20 +1,23 @@
 import React, { FC, useContext } from "react";
 
-import { TodoContext } from "../../context/context";
 import TodoTask from "./Todo/TodoTask";
 import { ITask } from "../../types";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteAllTodos, deleteDoneTodos } from "../../store/slices/todoSlice";
 
 
 export const TodoInput: FC = () => {
-     const {state, dispatch} = useContext(TodoContext);
-     const {todoList} = state;
-     console.log(todoList)
+  const todos = useSelector((state) => state);
+  console.log(todos)
+  const dispatch = useDispatch();
+
+     console.log(todos)
 
      const deleteAllTasks = () => {
-          dispatch({type: "DELETE_ALL_TASKS"})
+          dispatch(deleteAllTodos());
      }
      const deleteDoneTasks = () => {
-          dispatch({type: "DELETE_DONE_TASKS"})
+          dispatch(deleteDoneTodos());
      }
 
   return (
@@ -33,7 +36,7 @@ export const TodoInput: FC = () => {
           </button>
         </div>
         <div className="w-full my-[40px] h-[240px] max-h-[240px] overflow-y-scroll">
-          {todoList.map((task: ITask) => (
+          {todos.map((task: ITask) => (
             <TodoTask key={task.id} task={task} />
           ))}
         </div>

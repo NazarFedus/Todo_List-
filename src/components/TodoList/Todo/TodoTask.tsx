@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
 import trash from '../../../icons/trash.png'
 import pen from '../../../icons/pen.png'
 import { ITodoTaskProps} from "../../../types";
-import { TodoContext } from "../../../context/context";
+import { useDispatch } from "react-redux";
 
 const TodoTask = ({task}: ITodoTaskProps) => {
-  const {dispatch} = useContext(TodoContext);
+  const dispatch = useDispatch()
 
   const deleteTask = (): void => {
     dispatch({type: "DELETE_TASK", payload: task.id})
