@@ -1,17 +1,22 @@
-import { useContext } from "react";
+import { FC, useContext } from "react";
 import trash from '../../../icons/trash.png'
 import pen from '../../../icons/pen.png'
 import { ITodoTaskProps} from "../../../types";
-import { TodoContext } from "../../../context/context";
+// import { TodoContext } from "../../../context/context";
+import { deleteTodo, toggleTodo } from "../../../store/slices/todoSlice";
+import { useDispatch } from "react-redux";
 
-const TodoTask = ({task}: ITodoTaskProps) => {
-  const {dispatch} = useContext(TodoContext);
+const TodoTask: FC<ITodoTaskProps> = ({task}) => {
+  // const {dispatch} = useContext(TodoContext);
+  const dispatch = useDispatch()
 
   const deleteTask = (): void => {
-    dispatch({type: "DELETE_TASK", payload: task.id})
+    dispatch(deleteTodo(task.id))
+    // dispatch({type: "DELETE_TASK", payload: task.id})
   }
   const toggleTask = (): void => {
-    dispatch({type: "TOGGLE_TASK", payload: task.id})
+    dispatch(toggleTodo(task.id))
+    // dispatch({type: "TOGGLE_TASK", payload: task.id})
   }
   return (
     <div className="task mb-3 border border-solid border-grey-400 rounded-md p-[12px] transition-all hover:bg-slate-400">

@@ -7,3 +7,7 @@ export interface ITask {
 export interface ITodoTaskProps{
      task: ITask
 }
+
+export type TState = {
+     todos: ITask[];
+}

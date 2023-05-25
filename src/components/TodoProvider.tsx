@@ -1,14 +1,14 @@
-import React, { useReducer } from "react";
-import { TodoContext, initialState, todoReducer } from "../context/context";
+// import React, { useReducer } from "react";
+// import { TodoContext, initialState, todoReducer } from "../context/context";
 
-const TodoProvider: React.FC = ({ children }) => {
-  const [state, dispatch] = useReducer(todoReducer, initialState);
+// const TodoProvider: React.FC = ({ children }) => {
+//   const [state, dispatch] = useReducer(todoReducer, initialState);
 
-  return (
-    <TodoContext.Provider value={{ state, dispatch }}>
-      {children}
-    </TodoContext.Provider>
-  );
-};
+//   return (
+//     <TodoContext.Provider value={{ state, dispatch }}>
+//       {children}
+//     </TodoContext.Provider>
+//   );
+// };
 
-export default TodoProvider;
+// export default TodoProvider;
