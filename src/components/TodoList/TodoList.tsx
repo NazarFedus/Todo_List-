@@ -1,6 +1,5 @@
-import { FC, useContext, useState } from "react";
+import { FC, useState } from "react";
 
-// import { TodoContext } from "../../context/context";
 import TodoTask from "./Todo/TodoTask";
 import { ITask, TState } from "../../types";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,12 +12,9 @@ export const TodoInput: FC = () => {
       done: false,
       todo: false
     })
-    //  const {state, dispatch} = useContext(TodoContext);
     const todoList = useSelector((state: TState) => state.todosSlice?.todos)
-    console.log(todoList)
-    const dispatch = useDispatch()
-    //  const {todoList} = state;
 
+    const dispatch = useDispatch()
 
      const deleteAllTasks = () => {
           dispatch(deleteAllTodos())

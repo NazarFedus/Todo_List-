@@ -1,24 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ITask, TState } from "../../types";
+import { ITask, TInitState } from "../../types";
 
-const initialState: TState = {
+const initialState: TInitState = {
      todos: [],
-   };
+};
 
 export const todoSlice = createSlice({
      name: "todoSlice",
      initialState,
      reducers: {
-       setTodos: (state: TState, action) => {
+       setTodos: (state: TInitState, action) => {
          state.todos = action.payload;
        },
-       addTodo: (state: TState, action) => {
+       addTodo: (state: TInitState, action) => {
          state.todos = [...state.todos, action.payload];
        },
-       deleteTodo: (state, action) => {
+       deleteTodo: (state: TInitState, action) => {
          state.todos = state.todos?.filter((task: ITask) => task.id !== action.payload);
        },
-       toggleTodo: (state: TState, action) => {
+       toggleTodo: (state: TInitState, action) => {
          state.todos = state.todos?.map((task: ITask) =>
            task.id === action.payload
              ? { ...task, completed: !task.completed }

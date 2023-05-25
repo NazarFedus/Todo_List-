@@ -1,7 +1,6 @@
-import React, { FC, useContext, useState } from "react";
+import React, { FC, useState } from "react";
 import book from "../../icons/book.png";
 
-// import { TodoContext } from "../../context/context";
 import { ITask } from "../../types";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../../store/slices/todoSlice";
@@ -9,8 +8,7 @@ import { addTodo } from "../../store/slices/todoSlice";
 
 export const TodoInput: FC = () => {
   const [task, setTask] = useState<string>("");
-  // const {dispatch} = useContext(TodoContext);
-  const [todoList, setTodoList] = useState<ITask[]>([]);
+  const [todoList, ] = useState<ITask[]>([]);
   const dispatch = useDispatch();
 
   const addTask = (): void => {
@@ -21,7 +19,6 @@ export const TodoInput: FC = () => {
       completed: false,
     };
     dispatch(addTodo(newTask))
-    // dispatch({type: 'ADD_TASK', payload: newTask});
     setTask("");
     console.log(todoList);
   };
@@ -45,7 +42,7 @@ export const TodoInput: FC = () => {
           <input
             type="text"
             placeholder="New Todo..."
-            onChange={(event) => setTask(event.target.value)}
+            onChange={(event) => setTask(event?.target.value)}
             value={task}
             className="w-full focus: outline-none"
           />
