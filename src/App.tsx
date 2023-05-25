@@ -5,8 +5,8 @@ import TodoList from "./components/TodoList/TodoList";
 const App: FC = () => {
   return (
       <div className="wrapper">
-        <TodoInput></TodoInput>
-        <TodoList></TodoList>
+        <TodoInput />
+        <TodoList />
       </div>
   );
 };

@@ -16,20 +16,20 @@ export const todoSlice = createSlice({
          state.todos = [...state.todos, action.payload];
        },
        deleteTodo: (state: TInitState, action) => {
-         state.todos = state.todos?.filter((task: ITask) => task.id !== action.payload);
+         state.todos = state.todos?.filter((task: ITask) => task?.id !== action?.payload);
        },
        toggleTodo: (state: TInitState, action) => {
          state.todos = state.todos?.map((task: ITask) =>
-           task.id === action.payload
+           task?.id === action?.payload
              ? { ...task, completed: !task.completed }
              : task
          );
        },
-       deleteDoneTodos: (state) => {
+       deleteDoneTodos: (state: TInitState) => {
          state.todos = state.todos?.filter((task: ITask) => !task.completed);
        },
-       deleteAllTodos: (state) => {
-         state.todos = state.todos = [];
+       deleteAllTodos: (state: TInitState) => {
+         state.todos = [];
        },
      },
    });

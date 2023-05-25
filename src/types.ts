@@ -10,7 +10,7 @@ export interface ITodoTaskProps{
 
 export type TState = {
      todosSlice: any;
-     todos: ITask[];
+     // todos: ITask[];
 }
 
 export type TInitState = {
