@@ -9,10 +9,9 @@ export interface ITodoTaskProps{
 }
 
 export type TState = {
-     todosSlice: any;
-     // todos: ITask[];
+     todosSlice: ITodoSlice;
 }
-
-export type TInitState = {
-     todos: ITask[]
+export interface ITodoSlice {
+     todos: ITask[],
+     isLoading: boolean
 }

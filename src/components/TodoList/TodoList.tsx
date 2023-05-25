@@ -12,7 +12,10 @@ export const TodoInput: FC = () => {
       done: false,
       todo: false
     })
-    const todoList = useSelector((state: TState) => state.todosSlice?.todos)
+  const {todos, isLoading} = useSelector((state: TState) => state.todosSlice)
+
+  console.log(isLoading)
+  console.log(todos)
 
     const dispatch = useDispatch()
 
@@ -39,7 +42,8 @@ export const TodoInput: FC = () => {
           </button>
         </div>
         <div className="w-full my-[40px] h-[240px] max-h-[240px] overflow-y-scroll">
-          {todoList.map((task: ITask) =>{
+          {isLoading && <h1 style={{textAlign: 'center'}}>Loading...</h1>}
+          {todos?.map((task: ITask) =>{
             if(active.all) return <TodoTask key={task.id} task={task} />
             if(active.done){
               if(task.completed) return <TodoTask key={task.id} task={task} />
