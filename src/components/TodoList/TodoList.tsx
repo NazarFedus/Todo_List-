@@ -1,9 +1,10 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 import TodoTask from "./Todo/TodoTask";
 import { ITask, TState } from "../../types";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteAllTodos, deleteDoneTodos } from "../../store/slices/todoSlice";
+import { fetchTodos } from "../../store/api/todos";
 
 
 export const TodoInput: FC = () => {
@@ -25,6 +26,10 @@ export const TodoInput: FC = () => {
      const deleteDoneTasks = () => {
           dispatch(deleteDoneTodos())
      }
+
+  useEffect(() => {
+    dispatch(fetchTodos())
+  }, [])
 
   return (
     <div className="container-col flex-[70%]">

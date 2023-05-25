@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ITask, ITodoSlice } from "../../types";
+import { IFetchTodos, ITask, ITodoSlice } from "../../types";
 import { fetchTodos } from "../api/todos";
 
 const initialState: ITodoSlice = {
@@ -8,7 +8,7 @@ const initialState: ITodoSlice = {
 };
 
 export const todoSlice = createSlice({
-     name: "todoSlice",
+     name: "todo",
      initialState,
      reducers: {
        setTodos: (state: ITodoSlice, action) => {
@@ -35,14 +35,14 @@ export const todoSlice = createSlice({
        },
      },
      extraReducers: {
-          [fetchTodos.pending]: (state: ITodoSlice) => {
+          [fetchTodos.pending.type]: (state: ITodoSlice) => {
                state.isLoading = true
           },
-          [fetchTodos.fulfilled]: (state: ITodoSlice, {payload}) => {
+          [fetchTodos.fulfilled.type]: (state: ITodoSlice, {payload}: {payload: IFetchTodos[]}) => {
                state.isLoading = false;
                state.todos = payload;
           },
-          [fetchTodos.rejected]: (state: ITodoSlice) => {
+          [fetchTodos.rejected.type]: (state: ITodoSlice) => {
                state.isLoading = false;
           }
        }
